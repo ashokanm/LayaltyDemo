@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by TritonDev on 8/19/2015.
+ * Created by Babu on 8/19/2015.
  */
 public class StoreActivity extends ActionBarActivity {
     Toolbar toolbar;
