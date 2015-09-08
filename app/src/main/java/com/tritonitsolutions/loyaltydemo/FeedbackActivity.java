@@ -94,6 +94,11 @@ public class FeedbackActivity extends ActionBarActivity {
                 if(isValidName && isValidEmail && isValidPhone && isValidCardno && isValidDescription){
                     new PostDataAsynTask().execute();
                     Toast.makeText(getApplicationContext(),"Successfully sent your feedback.We will shortly get back to you",Toast.LENGTH_LONG).show();
+                    name.setText("");
+                    email.setText("");
+                    ph_no.setText("");
+                    loyalty_card_no.setText("");
+                    description.setText("");
 
                 }
 
@@ -124,7 +129,8 @@ public class FeedbackActivity extends ActionBarActivity {
 
   }
         private void postData(){
-            String url="http://whitehousecbe.in/demo/loyalty/admin/storefeedback.php?name="+name.getText().toString()+"&email="+email.getText().toString()+"&phone="+ph_no.getText().toString()+"&loyaltyid="+loyalty_card_no.getText().toString()+"&feedback="+ URLEncoder.encode(description.getText().toString());
+            String url="http://whitehousecbe.in/demo/loyalty/storefeedback.php?name="+name.getText().toString()+"&email="+email.getText().toString()+"&phone="+ph_no.getText().toString()+"&loyaltyid="+loyalty_card_no.getText().toString()+"&feedback="+ URLEncoder.encode(description.getText().toString());
+
             HttpClient client=new DefaultHttpClient();
             HttpGet get= new HttpGet(url);
             try {

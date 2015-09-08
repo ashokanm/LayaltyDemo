@@ -7,8 +7,12 @@
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar">
     </include>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <GridView
+        <GridView
         android:numColumns="2"
         android:gravity="center"
         android:columnWidth="100dp"
@@ -16,6 +20,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/gridView"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>
 

@@ -40,7 +40,7 @@ public class MainActivity extends ActionBarActivity {
     ViewPager pager=null;
     int count=0;
     Timer timer;
-    LinearLayout ll_shop;
+    LinearLayout ll_shop,ll_new_arrival;
     Intent intent;
 
     @Override
@@ -57,13 +57,22 @@ public class MainActivity extends ActionBarActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         Drawer = (DrawerLayout) findViewById(R.id.DrawerLayout);
         ll_shop=(LinearLayout)findViewById(R.id.iv_shop);
+        ll_new_arrival=(LinearLayout)findViewById(R.id.iv_new_arrival);
+
         ll_shop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent=new Intent(MainActivity.this,StoreActivity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.rotate_in,R.anim.rotate_out);
+            //    overridePendingTransition(R.anim.rotate_in,R.anim.rotate_out);
 
+            }
+        });
+        ll_new_arrival.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent=new Intent(MainActivity.this,NewArrivalActivity.class);
+                startActivity(intent);
             }
         });
         mDrawerToggle = new ActionBarDrawerToggle(this,Drawer,toolbar,R.string.nav_openDrawer,R.string.nav_closeDrawer){

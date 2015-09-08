@@ -58,7 +58,7 @@ public class StoreAdapter extends BaseAdapter {
         }else {
             holder=(ViewHolder)vi.getTag();
         }
-       HashMap<String,String> datas=store_data.get(position);
+        HashMap<String,String> datas=store_data.get(position);
         holder.st_name.setText(datas.get(StoreActivity.TAG_STORE_NAME));
         loader.DisplayImage(datas.get(StoreActivity.TAG_STORE_IMAGE),holder.st_image);
         return vi;
