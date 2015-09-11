@@ -19,6 +19,14 @@
             android:id="@+id/reviewpager"
             android:layout_width="fill_parent"
             android:layout_height="150dp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,10 +142,12 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/RecyclerView"
-        android:layout_width="320dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:background="#ffffff"

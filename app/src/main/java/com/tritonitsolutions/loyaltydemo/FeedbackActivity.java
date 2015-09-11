@@ -1,4 +1,5 @@
 package com.tritonitsolutions.loyaltydemo;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -29,6 +30,7 @@ public class FeedbackActivity extends ActionBarActivity {
     EditText name,email,ph_no,loyalty_card_no,description;
     Button submit;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    Intent intent;
 
 
     @Override
@@ -94,6 +96,8 @@ public class FeedbackActivity extends ActionBarActivity {
                 if(isValidName && isValidEmail && isValidPhone && isValidCardno && isValidDescription){
                     new PostDataAsynTask().execute();
                     Toast.makeText(getApplicationContext(),"Successfully sent your feedback.We will shortly get back to you",Toast.LENGTH_LONG).show();
+                    intent=new Intent(FeedbackActivity.this,MainActivity.class);
+                    startActivity(intent);
                     name.setText("");
                     email.setText("");
                     ph_no.setText("");

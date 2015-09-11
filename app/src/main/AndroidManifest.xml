@@ -19,10 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.LoginActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.MainActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.StoreActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.FeedbackActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.NewArrivalActivity"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.MyProfileActivity"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.NotificationActivity"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.NewUserActivity"></activity>
     </application>
 
 </manifest>

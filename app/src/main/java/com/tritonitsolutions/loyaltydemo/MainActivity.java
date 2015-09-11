@@ -26,8 +26,8 @@ import java.util.logging.Handler;
 
 public class MainActivity extends ActionBarActivity {
     private Toolbar toolbar;
-    String TITLES[] = {"My Profile","Store","My Points","My Purchase & History","Store Locator","My Wallet","Call us","Review","Feedback"};
-    int ICONS[] = {R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu};
+    String TITLES[] = {"My Profile","Store","My Points","My Purchase & History","Store Locator","My Wallet","Call us","Review","Feedback","WishList"};
+    int ICONS[] = {R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu};
     String NAME = "Loyalty";
     String EMAIL = "11102000456";
     int PROFILE = R.drawable.ic_profile;
@@ -40,7 +40,7 @@ public class MainActivity extends ActionBarActivity {
     ViewPager pager=null;
     int count=0;
     Timer timer;
-    LinearLayout ll_shop,ll_new_arrival;
+    LinearLayout ll_shop,ll_new_arrival,ll_notification;
     Intent intent;
 
     @Override
@@ -58,13 +58,20 @@ public class MainActivity extends ActionBarActivity {
         Drawer = (DrawerLayout) findViewById(R.id.DrawerLayout);
         ll_shop=(LinearLayout)findViewById(R.id.iv_shop);
         ll_new_arrival=(LinearLayout)findViewById(R.id.iv_new_arrival);
+        ll_notification=(LinearLayout)findViewById(R.id.iv_notification);
+        ll_notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent=new Intent(MainActivity.this,NotificationActivity.class);
+                startActivity(intent);
+            }
+        });
 
         ll_shop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent=new Intent(MainActivity.this,StoreActivity.class);
                 startActivity(intent);
-            //    overridePendingTransition(R.anim.rotate_in,R.anim.rotate_out);
 
             }
         });

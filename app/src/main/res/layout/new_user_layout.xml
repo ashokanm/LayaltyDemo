@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/tv_feedback_title"
+            android:text="@string/tv_register_title"
             android:textStyle="bold"
             android:textSize="25dp"/>
 
@@ -25,11 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:id="@+id/et_name"
+            android:id="@+id/et_newuser_name"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:hint="@string/tv_feedback_name"
+            android:hint="@string/tv_register_name"
             android:gravity="center"
             android:background="@drawable/custom_edittext"
             android:singleLine="true"/>
@@ -37,11 +37,11 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:id="@+id/et_email"
+            android:id="@+id/et_newuser_email"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:hint="@string/tv_feedback_email"
+            android:hint="@string/tv_register_email"
             android:gravity="center"
             android:background="@drawable/custom_edittext"
             android:singleLine="true" />
@@ -49,12 +49,12 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:id="@+id/et_ph_no"
+            android:id="@+id/et_newuser_ph_no"
             android:maxLength="10"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:hint="@string/tv_feedback_phno"
+            android:hint="@string/tv_register_phno"
             android:gravity="center"
             android:background="@drawable/custom_edittext"
             android:inputType="number"
@@ -63,28 +63,43 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:id="@+id/et_loyalty_no"
+            android:id="@+id/et_newuser_loyalty_no"
             android:maxLength="12"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:hint="@string/tv_feedback_loyalty_no"
+            android:hint="@string/tv_register_loyalty_no"
             android:gravity="center"
             android:background="@drawable/custom_edittext"
             android:inputType="number"
             android:singleLine="true"/>
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:id="@+id/et_description"
-            android:hint="@string/tv_feedback_description"
-            android:gravity="top|center_vertical"
+            android:id="@+id/et_newuser_pwd"
+            android:hint="@string/tv_register_pwd"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:paddingLeft="5dp"
+            android:gravity="center"
+            android:inputType="textPassword"
             android:background="@drawable/custom_edittext"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/et_newuser_confirm_pwd"
+            android:hint="@string/tv_register_confirm_pwd"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="5dp"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:background="@drawable/custom_edittext"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,9 +107,8 @@
             android:background="#0099CC"
             android:textColor="#FFFFFF"
             android:layout_marginTop="10dp"
-            android:id="@+id/btn_submit"/>
+            android:id="@+id/btn_newuser_submit"/>
 
     </LinearLayout>
 
-    </RelativeLayout>
-
+</RelativeLayout>

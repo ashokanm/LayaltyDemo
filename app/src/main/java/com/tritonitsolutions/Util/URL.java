@@ -7,6 +7,9 @@ import java.net.URLEncoder;
  */
 public class URL {
     public static final String STORE_DETAILS="http://whitehousecbe.in/demo/loyalty/url/products_url.php";
+    public static final String NOTIFICATION_URL="http://whitehousecbe.in/demo/loyalty/url/offer_url.php?cid=";
+    public static final String NEW_USER_URL="http://whitehousecbe.in/demo/loyalty/url/reg_member_apk.php?";
+    public static final String LOGIN_URL="http://whitehousecbe.in/demo/loyalty/url/check_login_apk.php?";
 
 
 }

@@ -15,4 +15,21 @@
     <string name="tv_feedback_loyalty_no">Loyalty card number</string>
     <string name="tv_feedback_description">Write some description...</string>
     <string name="btn_feedback_submit">Submit</string>
+
+    <string name="hint_username">Username</string>
+    <string name="hint_pwd">Password</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_new_user">New user</string>
+    <string name="tv_forgot_pwd">Forgot Password</string>
+
+    <string name="tv_register_title">Register</string>
+    <string name="tv_register_name">Name</string>
+    <string name="tv_register_email">Email</string>
+    <string name="tv_register_phno">Phone number</string>
+    <string name="tv_register_loyalty_no">Loyalty card number</string>
+    <string name="tv_register_pwd">Password</string>
+    <string name="tv_register_confirm_pwd">Conform password</string>
+    <string name="btn_register_submit">Submit</string>
+
+
 </resources>

@@ -9,6 +9,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.tritonitsolutions.layaltydemo.R;
 
@@ -23,11 +27,12 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_layout);
         boolean net = isNetworkAvailable();
+        startAnimation();
         if (net) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    intent = new Intent(SplashActivity.this, MainActivity.class);
+                    intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -52,5 +57,20 @@ public class SplashActivity extends Activity {
         ConnectivityManager manager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info=manager.getActiveNetworkInfo();
         return info !=null && info.isConnected();
+    }
+    private void startAnimation(){
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
+        anim.reset();
+        LinearLayout l=(LinearLayout) findViewById(R.id.ll_layout);
+        l.clearAnimation();
+        l.startAnimation(anim);
+
+        anim = AnimationUtils.loadAnimation(this, R.anim.translate);
+        anim.reset();
+        ImageView iv = (ImageView)findViewById(R.id.logo);
+        iv.clearAnimation();
+        iv.startAnimation(anim);
+
+
     }
 }

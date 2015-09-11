@@ -65,6 +65,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 case 0:
                     break;
                 case 1:
+                    intent=new Intent(cn,MyProfileActivity.class);
+                    cn.startActivity(intent);
                     break;
                 case 2:
                     intent=new Intent(cn,StoreActivity.class);
@@ -88,6 +90,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 case 9:
                     intent=new Intent(cn,FeedbackActivity.class);
                     cn.startActivity(intent);
+                case 10:
+                    break;
 
             }
 
