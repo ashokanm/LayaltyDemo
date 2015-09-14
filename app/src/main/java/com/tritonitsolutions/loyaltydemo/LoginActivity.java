@@ -1,14 +1,18 @@
 package com.tritonitsolutions.loyaltydemo;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tritonitsolutions.Util.URL;
@@ -39,10 +43,11 @@ import java.util.List;
  */
 public class LoginActivity extends ActionBarActivity {
     Toolbar toolbar;
-    EditText user_name, password;
-    Button login, regiser;
+    EditText user_name, password,forgot_email;
+    Button login, register;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     Intent intent;
+    TextView forgot_pwd;
 
 
     @Override
@@ -53,9 +58,12 @@ public class LoginActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
         user_name = (EditText) findViewById(R.id.et_username);
         password = (EditText) findViewById(R.id.et_pwd);
+        password.setTypeface(Typeface.DEFAULT);
+        password.setTransformationMethod(new PasswordTransformationMethod());
         login = (Button) findViewById(R.id.btn_login);
-        regiser = (Button) findViewById(R.id.btn_register);
-        regiser.setOnClickListener(new View.OnClickListener() {
+        register = (Button) findViewById(R.id.btn_register);
+        forgot_pwd=(TextView)findViewById(R.id.tv_forgot_pwd);
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(LoginActivity.this, NewUserActivity.class);
@@ -93,6 +101,45 @@ public class LoginActivity extends ActionBarActivity {
 
 
             }
+        });
+        forgot_pwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog=new Dialog(LoginActivity.this);
+                dialog.setContentView(R.layout.custom_alertdialog);
+                dialog.setTitle("Forgot Password");
+                forgot_email=(EditText)dialog.findViewById(R.id.et_forgot_email);
+                Button ok=(Button)dialog.findViewById(R.id.btn_forgot_ok);
+                Button cancel=(Button)dialog.findViewById(R.id.btn_forgot_cancel);
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(forgot_email.getText().toString().matches("")){
+                            forgot_email.setError("Enter eMail !");
+                            dialog.show();
+                        }else if(!(forgot_email.getText().toString().matches(emailPattern))){
+                            forgot_email.setError("Enter valid eMail !");
+                            dialog.show();
+
+                        }else {
+                            new loadForgot().execute();
+                            dialog.dismiss();
+                        }
+
+                    }
+                });
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+
+                    }
+                });
+                dialog.show();
+
+            }
+
+
         });
 
     }
@@ -147,5 +194,40 @@ public class LoginActivity extends ActionBarActivity {
 
 
     }
+    private class loadForgot extends AsyncTask<String,Void,String>{
+        String forgot_json;
+
+        @Override
+        protected String doInBackground(String... params) {
+            String url_forgot=URL.FORGOT_URL+forgot_email.getText().toString();
+            ServiceHandler handler=new ServiceHandler();
+            forgot_json=handler.makeServiceCall(url_forgot,ServiceHandler.GET);
+
+            return null;
+        }
+        protected void onPostExecute(String s){
+            super.onPostExecute(s);
+            try {
+                JSONObject jsonObject=new JSONObject(forgot_json);
+                System.out.println("jsonValue-------->"+jsonObject);
+                JSONArray jsonArray=jsonObject.getJSONArray("mail");
+                JSONObject obj=jsonArray.getJSONObject(0);
+                int forgot=obj.getInt("value");
+                if(forgot==1){
+                    Toast.makeText(getApplicationContext(),"Successfully your password reset.Check your eMail",Toast.LENGTH_LONG).show();
+
+                }else {
+                    Toast.makeText(getApplicationContext(),"eMail invalid",Toast.LENGTH_LONG).show();
+
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+    }
+
 }
 

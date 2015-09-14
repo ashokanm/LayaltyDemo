@@ -31,5 +31,9 @@
     <string name="tv_register_confirm_pwd">Conform password</string>
     <string name="btn_register_submit">Submit</string>
 
+    <string name="et_forgot_email_hint">eMail address</string>
+    <string name="btn_forgot_ok">OK</string>
+    <string name="btn_forgot_cancel">CANCEL</string>
+
 
 </resources>

@@ -84,7 +84,6 @@
             android:layout_marginLeft="10dp"
             android:paddingLeft="5dp"
             android:gravity="center"
-            android:inputType="textPassword"
             android:background="@drawable/custom_edittext"/>
         <EditText
             android:layout_width="match_parent"
@@ -97,7 +96,6 @@
             android:layout_marginLeft="10dp"
             android:paddingLeft="5dp"
             android:gravity="center"
-            android:inputType="textPassword"
             android:background="@drawable/custom_edittext"/>
 
         <Button

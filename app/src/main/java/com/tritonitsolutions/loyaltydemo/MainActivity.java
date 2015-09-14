@@ -26,8 +26,8 @@ import java.util.logging.Handler;
 
 public class MainActivity extends ActionBarActivity {
     private Toolbar toolbar;
-    String TITLES[] = {"My Profile","Store","My Points","My Purchase & History","Store Locator","My Wallet","Call us","Review","Feedback","WishList"};
-    int ICONS[] = {R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu};
+    String TITLES[] = {"My Profile","Store","My Points","My Purchase & History","Store Locator","My Wallet","Call us","Review","Feedback","WishList","Logout"};
+    int ICONS[] = {R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu};
     String NAME = "Loyalty";
     String EMAIL = "11102000456";
     int PROFILE = R.drawable.ic_profile;

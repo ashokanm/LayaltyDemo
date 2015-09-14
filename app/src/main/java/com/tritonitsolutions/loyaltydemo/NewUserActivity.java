@@ -1,10 +1,12 @@
 package com.tritonitsolutions.loyaltydemo;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +38,11 @@ public class NewUserActivity extends ActionBarActivity {
         reg_ph_no = (EditText) findViewById(R.id.et_newuser_ph_no);
         reg_lcn = (EditText) findViewById(R.id.et_newuser_loyalty_no);
         reg_pwd = (EditText) findViewById(R.id.et_newuser_pwd);
+        reg_pwd.setTypeface(Typeface.DEFAULT);
+        reg_pwd.setTransformationMethod(new PasswordTransformationMethod());
         reg_confirm_pwd = (EditText) findViewById(R.id.et_newuser_confirm_pwd);
+        reg_confirm_pwd.setTypeface(Typeface.DEFAULT);
+        reg_confirm_pwd.setTransformationMethod(new PasswordTransformationMethod());
         reg_submit = (Button) findViewById(R.id.btn_newuser_submit);
         reg_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +93,7 @@ public class NewUserActivity extends ActionBarActivity {
                 }
 
                 if (!(reg_confirm_pwd.getText().toString().equals(reg_pwd.getText().toString()))) {
-                    reg_confirm_pwd.setError("Password Mismatch");
+                    reg_confirm_pwd.setError("Password Mismatch !");
                     isValidConfirmPassword = false;
                 } else {
                     isValidConfirmPassword = true;

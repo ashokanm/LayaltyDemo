@@ -27,6 +27,8 @@
         <activity android:name="com.tritonitsolutions.loyaltydemo.MyProfileActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.NotificationActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.NewUserActivity"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.PurchaseHistoryActivity"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.WishListActivity"></activity>
     </application>
 
 </manifest>

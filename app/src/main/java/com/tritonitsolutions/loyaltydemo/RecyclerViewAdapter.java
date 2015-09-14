@@ -75,6 +75,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 case 3:
                     break;
                 case 4:
+                    intent=new Intent(cn,PurchaseHistoryActivity.class);
+                    cn.startActivity(intent);
                     break;
                 case 5:
                     break;
@@ -91,7 +93,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     intent=new Intent(cn,FeedbackActivity.class);
                     cn.startActivity(intent);
                 case 10:
+                    intent=new Intent(cn,WishListActivity.class);
+                    cn.startActivity(intent);
                     break;
+                case 11:
+                    intent=new Intent(cn,LoginActivity.class);
+                    cn.startActivity(intent);
+
+
 
             }
 

@@ -110,8 +110,8 @@ public class NotificationActivity extends ActionBarActivity {
                     tv = new TextView(NotificationActivity.this);
                     params.gravity = Gravity.CENTER;
                     tv.setWidth(150);
-                    tv.setBackgroundColor(getResources().getColor(R.color.switch_thumb_material_dark));
-                    tv.setTextColor(getResources().getColor(R.color.abc_search_url_text));
+                    tv.setBackgroundColor(getResources().getColor(R.color.notification_background));
+                    tv.setTextColor(getResources().getColor(R.color.notification_text));
                     tv.setPadding(Gravity.CENTER, 10, Gravity.CENTER, 10);
                     tv.setTextSize(15);
 
