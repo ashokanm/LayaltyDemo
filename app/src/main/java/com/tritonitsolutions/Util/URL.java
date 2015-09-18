@@ -12,5 +12,8 @@ public class URL {
     public static final String LOGIN_URL="http://whitehousecbe.in/demo/loyalty/url/check_login_apk.php?";
     public static final String FORGOT_URL="http://whitehousecbe.in/demo/loyalty/url/forget_email_check.php?email=";
     public static final String PURCHASE_HISTORY_URL="http://whitehousecbe.in/demo/loyalty/url/sales_history.php?cid=";
+    public static final String FEEDBACK_URL="http://whitehousecbe.in/demo/loyalty/storefeedback.php?";
+    public static final String WISH_LIST_URL="http://whitehousecbe.in/demo/loyalty/url/storewishlist.php?";
+    public static final String NEW_ARRIVAL_URL="http://whitehousecbe.in/demo/loyalty/url/newproduct.php";
 
 }

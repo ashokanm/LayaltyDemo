@@ -5,10 +5,12 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -22,21 +24,33 @@ import com.tritonitsolutions.layaltydemo.R;
 public class SplashActivity extends Activity {
     private static int SPLASH_TIME=3000;
     Intent intent;
+    String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_layout);
         boolean net = isNetworkAvailable();
         startAnimation();
+        SharedPreferences pref = getSharedPreferences("User-id", MODE_PRIVATE);
+        user = pref.getString("User_id", null);
         if (net) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    intent = new Intent(SplashActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
+                    if(user!= null){
+                        intent = new Intent(SplashActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+
+                    }else {
+                        intent = new Intent(SplashActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
                 }
             }, SPLASH_TIME);
+
         }
         else {
             AlertDialog dialog=new AlertDialog.Builder(SplashActivity.this).create();
@@ -51,6 +65,7 @@ public class SplashActivity extends Activity {
             });
             dialog.show();
         }
+
     }
 
     private boolean isNetworkAvailable(){

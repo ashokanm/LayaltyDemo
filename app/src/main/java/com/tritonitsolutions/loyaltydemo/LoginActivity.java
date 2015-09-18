@@ -153,6 +153,7 @@ public class LoginActivity extends ActionBarActivity {
             System.out.println("urls------->" + url);
             ServiceHandler handler = new ServiceHandler();
             jsonStr = handler.makeServiceCall(url, ServiceHandler.GET);
+            System.out.println("returnValue------>"+jsonStr);
 
             return null;
         }

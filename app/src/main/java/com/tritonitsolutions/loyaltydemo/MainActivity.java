@@ -26,7 +26,7 @@ import java.util.logging.Handler;
 
 public class MainActivity extends ActionBarActivity {
     private Toolbar toolbar;
-    String TITLES[] = {"My Profile","Store","My Points","My Purchase & History","Store Locator","My Wallet","Call us","Review","Feedback","WishList","Logout"};
+    String TITLES[] = {"Profile","Shop","Points","Purchase History","Store Locator","Wallet","Call us","Review","Feedback","WishList","Logout"};
     int ICONS[] = {R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu};
     String NAME = "Loyalty";
     String EMAIL = "11102000456";
@@ -40,7 +40,7 @@ public class MainActivity extends ActionBarActivity {
     ViewPager pager=null;
     int count=0;
     Timer timer;
-    LinearLayout ll_shop,ll_new_arrival,ll_notification;
+    LinearLayout ll_shop,ll_new_arrival,ll_notification,ll_loyalty;
     Intent intent;
 
     @Override
@@ -56,9 +56,17 @@ public class MainActivity extends ActionBarActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         Drawer = (DrawerLayout) findViewById(R.id.DrawerLayout);
+        ll_loyalty=(LinearLayout)findViewById(R.id.iv_loyalty);
         ll_shop=(LinearLayout)findViewById(R.id.iv_shop);
         ll_new_arrival=(LinearLayout)findViewById(R.id.iv_new_arrival);
         ll_notification=(LinearLayout)findViewById(R.id.iv_notification);
+        ll_loyalty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent=new Intent(MainActivity.this,LoyaltyActivity.class);
+                startActivity(intent);
+            }
+        });
         ll_notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

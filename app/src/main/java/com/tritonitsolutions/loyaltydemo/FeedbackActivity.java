@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.tritonitsolutions.Util.URL;
 import com.tritonitsolutions.layaltydemo.R;
 
 import org.apache.http.HttpEntity;
@@ -39,6 +40,7 @@ public class FeedbackActivity extends ActionBarActivity {
         setContentView(R.layout.feedback_layout);
         toolbar=(Toolbar)findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+
         name=(EditText)findViewById(R.id.et_name);
         email=(EditText)findViewById(R.id.et_email);
         ph_no=(EditText)findViewById(R.id.et_ph_no);
@@ -120,7 +122,10 @@ public class FeedbackActivity extends ActionBarActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                postData();
+                String url= URL.FEEDBACK_URL+"name="+name.getText().toString()+"&email="+email.getText().toString()+"&phone="+ph_no.getText().toString()+"&loyaltyid="+loyalty_card_no.getText().toString()+"&feedback="+ URLEncoder.encode(description.getText().toString());
+                ServiceHandler handler=new ServiceHandler();
+                String json= handler.makeServiceCall(url, ServiceHandler.GET);
+
             }catch (NullPointerException e){
                 e.printStackTrace();
 
@@ -129,30 +134,7 @@ public class FeedbackActivity extends ActionBarActivity {
             }
             return null;
         }
-  protected void onPostExecute(String lengthOfFile){
 
-  }
-        private void postData(){
-            String url="http://whitehousecbe.in/demo/loyalty/storefeedback.php?name="+name.getText().toString()+"&email="+email.getText().toString()+"&phone="+ph_no.getText().toString()+"&loyaltyid="+loyalty_card_no.getText().toString()+"&feedback="+ URLEncoder.encode(description.getText().toString());
-
-            HttpClient client=new DefaultHttpClient();
-            HttpGet get= new HttpGet(url);
-            try {
-                HttpResponse response=client.execute(get);
-                HttpEntity entity=response.getEntity();
-                if(entity !=null){
-                    String respons= EntityUtils.toString(entity).toString().trim();
-                    System.out.println("Respose-------->"+respons);
-                }
-
-            }catch (NullPointerException e){
-                e.printStackTrace();
-
-            } catch (IOException ex){
-                ex.printStackTrace();
-            }
-
-        }
 
     }
 

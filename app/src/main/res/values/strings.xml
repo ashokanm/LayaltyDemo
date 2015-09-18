@@ -36,4 +36,13 @@
     <string name="btn_forgot_cancel">CANCEL</string>
 
 
+    <string name="tv_wishlist_title">WishList</string>
+    <string name="tv_wishlist_name">Name</string>
+    <string name="tv_wishlist_email">Email</string>
+    <string name="tv_wishlist_phno">Phone number</string>
+    <string name="tv_wishlist_loyalty_no">Loyalty card number</string>
+    <string name="tv_wishlist_description">Write your wishlist...</string>
+    <string name="btn_wishlist_submit">Submit</string>
+
+
 </resources>

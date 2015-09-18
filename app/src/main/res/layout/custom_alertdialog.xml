@@ -6,11 +6,16 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:inputType="textEmailAddress"
         android:gravity="center"
         android:padding="10dp"
         android:id="@+id/et_forgot_email"
+        android:background="@drawable/custom_edittext"
+        android:textCursorDrawable="@drawable/edittext_cursor_color"
         android:hint="@string/et_forgot_email_hint"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginRight="10dp"
-            android:background="#0099CC"
+            android:background="@color/ColorPrimary"
             android:textColor="#FFFFFF"
             android:id="@+id/btn_forgot_ok"
             android:text="@string/btn_forgot_ok"/>
@@ -35,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
-            android:background="#0099CC"
+            android:background="@color/ColorPrimary"
             android:textColor="#FFFFFF"
             android:text="@string/btn_forgot_cancel"
             android:id="@+id/btn_forgot_cancel"/>

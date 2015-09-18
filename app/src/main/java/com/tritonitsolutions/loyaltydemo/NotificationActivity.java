@@ -36,7 +36,8 @@ public class NotificationActivity extends ActionBarActivity {
     public static final String TITLE="title";
     public static final String DESCRIPTION="discription";
     public static final String COUPON_CODE="code";
-   public static final String EXPIRE_DATE="expire";
+    public static final String EXPIRE_DATE="expire";
+
     ProgressDialog dialog;
     TextView tv;
     LinearLayout layout;
@@ -58,7 +59,6 @@ public class NotificationActivity extends ActionBarActivity {
         data_notification2=new ArrayList();
         data_notification3=new ArrayList();
         data_notification4=new ArrayList();
-        
 
     }
     private class loadNotificationData extends AsyncTask<String,Void,Void>{

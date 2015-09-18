@@ -2,6 +2,7 @@ package com.tritonitsolutions.loyaltydemo;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.tritonitsolutions.layaltydemo.R;
 
 /**
@@ -92,13 +92,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 case 9:
                     intent=new Intent(cn,FeedbackActivity.class);
                     cn.startActivity(intent);
+                    break;
                 case 10:
                     intent=new Intent(cn,WishListActivity.class);
                     cn.startActivity(intent);
                     break;
                 case 11:
                     intent=new Intent(cn,LoginActivity.class);
+                    SharedPreferences pref = cn.getSharedPreferences("User-id", 0);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.remove("User_id");
+                    editor.commit();
                     cn.startActivity(intent);
+                    ((MainActivity) cn).finish();
 
 
 
@@ -106,6 +112,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
         }
+
+
+
     }
 
     RecyclerViewAdapter(String Titles[], int Icons[], String Name, String email,int profile, Context cntx) {
