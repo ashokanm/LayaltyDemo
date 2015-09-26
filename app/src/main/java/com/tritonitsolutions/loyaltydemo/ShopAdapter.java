@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.tritonitsolutions.layaltydemo.R;
 
 import java.util.ArrayList;
@@ -16,15 +17,17 @@ import java.util.HashMap;
 /**
  * Created by TritonDev on 9/5/2015.
  */
-public class StoreAdapter extends BaseAdapter {
+public class ShopAdapter extends BaseAdapter {
     Context context;
     ArrayList<HashMap<String,String>> store_data;
    LayoutInflater inflater;
-    ImageLoader loader;
-    public StoreAdapter(Context context,ArrayList<HashMap<String,String>> store_data){
+    Picasso mPicasso;
+   // ImageLoader loader;
+    public ShopAdapter(Context context, ArrayList<HashMap<String, String>> store_data){
         this.context=context;
         this.store_data=store_data;
-        loader=new ImageLoader(context);
+       // loader=new ImageLoader(context);
+         mPicasso = Picasso.with(context);
         inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -59,8 +62,10 @@ public class StoreAdapter extends BaseAdapter {
             holder=(ViewHolder)vi.getTag();
         }
         HashMap<String,String> datas=store_data.get(position);
-        holder.st_name.setText(datas.get(StoreActivity.TAG_STORE_NAME));
-        loader.DisplayImage(datas.get(StoreActivity.TAG_STORE_IMAGE),holder.st_image);
+        holder.st_name.setText(datas.get(ShopActivity.TAG_STORE_NAME));
+        Picasso.with(context).load(datas.get(ShopActivity.TAG_STORE_IMAGE)).into(holder.st_image);
+
+       //loader.DisplayImage(datas.get(ShopActivity.TAG_STORE_IMAGE), holder.st_image);
         return vi;
     }
 private class ViewHolder{

@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.tritonitsolutions.layaltydemo.R;
 
 import java.util.ArrayList;
@@ -21,10 +22,12 @@ public class NewArrivalAdapter extends BaseAdapter {
     ArrayList<HashMap<String,String>> new_arrival_data;
     LayoutInflater inflater;
     ImageLoader imageLoader;
+    Picasso picasso;
     public NewArrivalAdapter(Context context,ArrayList<HashMap<String,String>> new_arrival_data){
         this.context=context;
         this.new_arrival_data=new_arrival_data;
-        imageLoader=new ImageLoader(context);
+       // imageLoader=new ImageLoader(context);
+        picasso=Picasso.with(context);
         inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
     @Override
@@ -58,7 +61,8 @@ public class NewArrivalAdapter extends BaseAdapter {
         }
         HashMap<String,String> new_arr=new_arrival_data.get(position);
         holder.tv.setText(new_arr.get(NewArrivalActivity.NEW_ARRIVAL_NAME));
-        imageLoader.DisplayImage(new_arr.get(NewArrivalActivity.NEW_ARRIVAL_IMAGE),holder.img);
+        Picasso.with(context).load(new_arr.get(NewArrivalActivity.NEW_ARRIVAL_IMAGE)).into(holder.img);
+      //  imageLoader.DisplayImage(new_arr.get(NewArrivalActivity.NEW_ARRIVAL_IMAGE),holder.img);
         return vi;
     }
     private class ViewHolder{

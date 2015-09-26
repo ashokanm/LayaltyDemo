@@ -13,7 +13,7 @@
     <string name="tv_feedback_email">Email</string>
     <string name="tv_feedback_phno">Phone number</string>
     <string name="tv_feedback_loyalty_no">Loyalty card number</string>
-    <string name="tv_feedback_description">Write some description...</string>
+    <string name="tv_feedback_description">Write your feedback...</string>
     <string name="btn_feedback_submit">Submit</string>
 
     <string name="hint_username">Username</string>
@@ -43,6 +43,13 @@
     <string name="tv_wishlist_loyalty_no">Loyalty card number</string>
     <string name="tv_wishlist_description">Write your wishlist...</string>
     <string name="btn_wishlist_submit">Submit</string>
+
+    <string name="edit_profile_title">Change Profile</string>
+    <string name="edit_profile_email">Email</string>
+    <string name="edit_profile_phone">Phone number</string>
+    <string name="edit_profile_loyalty_no">Loyalty card number</string>
+    <string name="edit_profile_pwd">Password</string>
+    <string name="edit_profile_submit">Submit</string>
 
 
 </resources>

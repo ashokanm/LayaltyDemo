@@ -21,15 +21,16 @@
         </activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.LoginActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.MainActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.StoreActivity"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.ShopActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.FeedbackActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.NewArrivalActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.MyProfileActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.NotificationActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.NewUserActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.PurchaseHistoryActivity"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.LoyaltyHistoryActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.WishListActivity"></activity>
         <activity android:name="com.tritonitsolutions.loyaltydemo.LoyaltyActivity"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.CustomerHistoryActivity"></activity>
     </application>
 
 </manifest>

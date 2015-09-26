@@ -1,11 +1,12 @@
 package com.tritonitsolutions.loyaltydemo;
 
 
+import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,12 +21,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static com.tritonitsolutions.Util.URL.STORE_DETAILS;
-
 /**
  * Created by TritonDev on 8/19/2015.
  */
-public class StoreActivity extends ActionBarActivity  {
+public class ShopActivity extends ActionBarActivity  {
     Toolbar toolbar;
     public static final String TAG_STORE="store";
     public static final String TAG_STORE_NAME="p_name";
@@ -34,7 +33,7 @@ public class StoreActivity extends ActionBarActivity  {
     GridView gv;
     ProgressDialog dialog;
     JSONArray list=null;
-    StoreAdapter adapter;
+    ShopAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
@@ -54,7 +53,7 @@ public class StoreActivity extends ActionBarActivity  {
             public void onRefresh() {
                         swipeRefreshLayout.setRefreshing(true);
                         store_list.clear();
-                        new loadStoreData().execute(URL.STORE_DETAILS);
+                new loadStoreData().execute(URL.STORE_DETAILS);
 
 
                     }
@@ -64,8 +63,9 @@ public class StoreActivity extends ActionBarActivity  {
     }
 
     private class loadStoreData extends AsyncTask<String,Void,Void>{
+        String jsonStr;
         protected void onPreExecute(){
-//            dialog=new ProgressDialog(StoreActivity.this);
+//            dialog=new ProgressDialog(ShopActivity.this);
 //            dialog.setMessage("Loading...");
 //            dialog.setIndeterminate(true);
 //            dialog.setCancelable(false);
@@ -74,9 +74,13 @@ public class StoreActivity extends ActionBarActivity  {
 
         @Override
         protected Void doInBackground(String... params) {
-         ServiceHandler handler=new ServiceHandler();
-         String jsonStr=handler.makeServiceCall(URL.STORE_DETAILS,ServiceHandler.GET);
-            System.out.println("values" + jsonStr);
+            try {
+                ServiceHandler handler=new ServiceHandler();
+                jsonStr=handler.makeServiceCall(URL.STORE_DETAILS,ServiceHandler.GET);
+                System.out.println("values" + jsonStr);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 
          if(jsonStr != null){
              try {
@@ -98,11 +102,13 @@ public class StoreActivity extends ActionBarActivity  {
 
              }catch (JSONException e){
                  e.printStackTrace();
+             } catch (Exception ex){
+                 ex.printStackTrace();
              }
 
          }
             else {
-             StoreActivity.this.runOnUiThread(new Runnable() {
+             ShopActivity.this.runOnUiThread(new Runnable() {
                  @Override
                  public void run() {
                      Toast.makeText(getApplicationContext(), "Now there is no store available !!", Toast.LENGTH_LONG).show();
@@ -114,12 +120,13 @@ public class StoreActivity extends ActionBarActivity  {
             return null;
         }
 
+        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
         protected void onPostExecute(Void result) {
 
-            adapter = new StoreAdapter(StoreActivity.this, store_list);
+            adapter = new ShopAdapter(ShopActivity.this, store_list);
             gv.setAdapter(adapter);
             adapter.notifyDataSetChanged();
-           // dialog.dismiss();
+            // dialog.dismiss();
             swipeRefreshLayout.setRefreshing(false);
             super.onPostExecute(result);
 

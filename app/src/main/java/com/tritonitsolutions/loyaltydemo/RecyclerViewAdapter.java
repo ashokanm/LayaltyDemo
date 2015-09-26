@@ -69,35 +69,29 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     cn.startActivity(intent);
                     break;
                 case 2:
-                    intent=new Intent(cn,StoreActivity.class);
+                    intent=new Intent(cn,ShopActivity.class);
                     cn.startActivity(intent);
                     break;
                 case 3:
                     break;
                 case 4:
-                    intent=new Intent(cn,PurchaseHistoryActivity.class);
-                    cn.startActivity(intent);
                     break;
                 case 5:
-                    break;
-                case 6:
-                    break;
-                case 7:
                     Intent phoneIntent=new Intent(Intent.ACTION_CALL);
                     phoneIntent.setData(Uri.parse("tel:" +"0987654321"));
                     cn.startActivity(phoneIntent);;
                     break;
-                case 8:
+                case 6:
                     break;
-                case 9:
+                case 7:
                     intent=new Intent(cn,FeedbackActivity.class);
                     cn.startActivity(intent);
                     break;
-                case 10:
+                case 8:
                     intent=new Intent(cn,WishListActivity.class);
                     cn.startActivity(intent);
                     break;
-                case 11:
+                case 9:
                     intent=new Intent(cn,LoginActivity.class);
                     SharedPreferences pref = cn.getSharedPreferences("User-id", 0);
                     SharedPreferences.Editor editor = pref.edit();

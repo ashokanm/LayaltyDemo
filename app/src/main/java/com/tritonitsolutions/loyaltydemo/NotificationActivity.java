@@ -62,6 +62,7 @@ public class NotificationActivity extends ActionBarActivity {
 
     }
     private class loadNotificationData extends AsyncTask<String,Void,Void>{
+        String jsonStr;
         protected void onPreExecute(){
             dialog=new ProgressDialog(NotificationActivity.this);
             dialog.setMessage("Loading...");
@@ -73,9 +74,13 @@ public class NotificationActivity extends ActionBarActivity {
         }
         @Override
         protected Void doInBackground(String... params) {
-            ServiceHandler handler=new ServiceHandler();
-            String jsonStr=handler.makeServiceCall(URL.NOTIFICATION_URL+R_user_id,ServiceHandler.GET);
-            System.out.println("values----------->" + jsonStr);
+            try {
+                ServiceHandler handler=new ServiceHandler();
+                jsonStr=handler.makeServiceCall(URL.NOTIFICATION_URL+R_user_id,ServiceHandler.GET);
+                System.out.println("values----------->" + jsonStr);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 
             if(jsonStr != null){
                 try {
@@ -121,7 +126,10 @@ public class NotificationActivity extends ActionBarActivity {
                     tv.setLayoutParams(params);
                     layout.addView(tv);
                 }
-            }catch (Exception e){
+
+            }
+
+            catch (Exception e){
                 e.printStackTrace();
             }
             dialog.dismiss();

@@ -19,6 +19,8 @@
         android:stretchMode="columnWidth"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
         android:id="@+id/gridView"/>
 
     </android.support.v4.widget.SwipeRefreshLayout>

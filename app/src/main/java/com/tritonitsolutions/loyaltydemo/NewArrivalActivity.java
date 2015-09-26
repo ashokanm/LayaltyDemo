@@ -1,6 +1,5 @@
 package com.tritonitsolutions.loyaltydemo;
 
-import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,14 +7,11 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
-
 import com.tritonitsolutions.Util.URL;
 import com.tritonitsolutions.layaltydemo.R;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -57,11 +53,17 @@ public class NewArrivalActivity extends ActionBarActivity {
 
     }
     private class loadNewArrivalData extends AsyncTask<String,Void,Void>{
+        String jsonValue;
 
         @Override
         protected Void doInBackground(String... params) {
-            ServiceHandler handler=new ServiceHandler();
-            String jsonValue=handler.makeServiceCall(URL.NEW_ARRIVAL_URL,ServiceHandler.GET);
+            try {
+                ServiceHandler handler=new ServiceHandler();
+                jsonValue=handler.makeServiceCall(URL.NEW_ARRIVAL_URL,ServiceHandler.GET);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
             if(jsonValue !=null){
                 try {
                     JSONObject object=new JSONObject(jsonValue);
@@ -80,6 +82,8 @@ public class NewArrivalActivity extends ActionBarActivity {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                } catch (Exception ex){
+                    ex.printStackTrace();
                 }
             }
             return null;
@@ -90,6 +94,7 @@ public class NewArrivalActivity extends ActionBarActivity {
             newArrivalAdapter.notifyDataSetChanged();
             refreshLayout.setRefreshing(false);
             super.onPostExecute(result);
+
         }
     }
 }
