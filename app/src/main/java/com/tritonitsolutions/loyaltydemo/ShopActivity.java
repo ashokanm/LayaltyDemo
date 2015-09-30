@@ -47,16 +47,16 @@ public class ShopActivity extends ActionBarActivity  {
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         new loadStoreData().execute();
         swipeRefreshLayout.setSize(SwipeRefreshLayout.LARGE);
-        swipeRefreshLayout.setColorSchemeColors(Color.RED,Color.GREEN,Color.BLUE);
+        swipeRefreshLayout.setColorSchemeColors(Color.RED, Color.GREEN, Color.BLUE);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                        swipeRefreshLayout.setRefreshing(true);
-                        store_list.clear();
+                swipeRefreshLayout.setRefreshing(true);
+                store_list.clear();
                 new loadStoreData().execute(URL.STORE_DETAILS);
 
 
-                    }
+            }
 
 
         });
@@ -87,18 +87,22 @@ public class ShopActivity extends ActionBarActivity  {
 
                  JSONObject obj=new JSONObject(jsonStr);
                  list=obj.getJSONArray(TAG_STORE);
-                 for(int i=0;i<list.length();i++){
-                     JSONObject ob=list.getJSONObject(i);
-                     String st_name=ob.getString(TAG_STORE_NAME);
-                     String st_image=ob.getString(TAG_STORE_IMAGE);
-
-                     HashMap<String,String> stores=new HashMap<String,String>();
-                     stores.put(TAG_STORE_NAME,st_name);
-                     stores.put(TAG_STORE_IMAGE, st_image);
-                     store_list.add(stores);
+                 System.out.println("jjjjjjjj---->"+list);
 
 
-                 }
+                     for (int i = 0; i < list.length(); i++) {
+
+                         System.out.println("jjjj----->" + list);
+                         JSONObject ob = list.getJSONObject(i);
+                         String st_name = ob.getString(TAG_STORE_NAME);
+                         String st_image = ob.getString(TAG_STORE_IMAGE);
+
+                         HashMap<String, String> stores = new HashMap<String, String>();
+                         stores.put(TAG_STORE_NAME, st_name);
+                         stores.put(TAG_STORE_IMAGE, st_image);
+                         store_list.add(stores);
+                     }
+
 
              }catch (JSONException e){
                  e.printStackTrace();
@@ -107,16 +111,16 @@ public class ShopActivity extends ActionBarActivity  {
              }
 
          }
-            else {
-             ShopActivity.this.runOnUiThread(new Runnable() {
-                 @Override
-                 public void run() {
-                     Toast.makeText(getApplicationContext(), "Now there is no store available !!", Toast.LENGTH_LONG).show();
-
-                 }
-             });
-
-         }
+//            else {
+//             ShopActivity.this.runOnUiThread(new Runnable() {
+//                 @Override
+//                 public void run() {
+//                     Toast.makeText(getApplicationContext(), "Now there is no store available !!", Toast.LENGTH_LONG).show();
+//
+//                 }
+//             });
+//
+//         }
             return null;
         }
 

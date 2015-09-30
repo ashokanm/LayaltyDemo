@@ -20,11 +20,11 @@ import java.util.TimerTask;
 
 public class MainActivity extends ActionBarActivity {
     private Toolbar toolbar;
-    String TITLES[] = {"Profile","Shop","Shop Locator","Wallet","Call us","Review","Feedback","WishList","Logout"};
-    int ICONS[] = {R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu,R.drawable.ic_menu};
+    String TITLES[] = {"Profile","Shop","Shop Locator","Wallet","Call Us","Review","Feedback","WishList","Logout"};
+    int ICONS[] = {R.drawable.menu_profile,R.drawable.menu_shop,R.drawable.menu_shop_locator,R.drawable.menu_wallet,R.drawable.menu_callus,R.drawable.menu_review,R.drawable.menu_feedback,R.drawable.menu_wishlist,R.drawable.menu_logout};
     String NAME = "Loyalty";
     String EMAIL = "11102000456";
-    int PROFILE = R.drawable.ic_profile;
+    int PROFILE = R.drawable.img_user;
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
@@ -72,7 +72,7 @@ public class MainActivity extends ActionBarActivity {
         ll_shop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent=new Intent(MainActivity.this,ShopActivity.class);
+                intent=new Intent(MainActivity.this,ShopCategoryActivity.class);
                 startActivity(intent);
 
             }

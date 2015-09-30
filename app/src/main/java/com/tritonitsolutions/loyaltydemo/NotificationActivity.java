@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -40,6 +41,7 @@ public class NotificationActivity extends ActionBarActivity {
 
     ProgressDialog dialog;
     TextView tv;
+    ImageView iv;
     LinearLayout layout;
     String R_user_id;
 
@@ -50,6 +52,7 @@ public class NotificationActivity extends ActionBarActivity {
         setContentView(R.layout.notification_layout);
         toolbar=(Toolbar)findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Notification");
         SharedPreferences pref = getSharedPreferences("User-id", MODE_PRIVATE);
         R_user_id = pref.getString("User_id", null);
         System.out.println("key"+R_user_id);
@@ -59,6 +62,7 @@ public class NotificationActivity extends ActionBarActivity {
         data_notification2=new ArrayList();
         data_notification3=new ArrayList();
         data_notification4=new ArrayList();
+        iv=new ImageView(this);
 
     }
     private class loadNotificationData extends AsyncTask<String,Void,Void>{
@@ -120,11 +124,14 @@ public class NotificationActivity extends ActionBarActivity {
                     tv.setPadding(Gravity.CENTER, 10, Gravity.CENTER, 10);
                     tv.setTextSize(15);
 
+
+
                     params.setMargins(Gravity.CENTER, 30, 30, 30);
                     tv.setText(String.valueOf(data_notification2.get(j) + "\n" + data_notification4.get(j) + "\n" + data_notification1.get(j) + "\n" + data_notification3.get(j)));
                     tv.setTypeface(Typeface.SERIF, Typeface.BOLD);
                     tv.setLayoutParams(params);
                     layout.addView(tv);
+                    layout.addView(iv);
                 }
 
             }

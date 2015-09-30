@@ -30,8 +30,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:hint="@string/tv_register_name"
-            android:gravity="center"
-            android:background="@drawable/custom_edittext"
+            android:paddingLeft="10dp"
+            android:background="@drawable/et_username"
             android:textCursorDrawable="@drawable/edittext_cursor_color"
             android:singleLine="true"/>
         <EditText
@@ -43,8 +43,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:hint="@string/tv_register_email"
-            android:gravity="center"
-            android:background="@drawable/custom_edittext"
+            android:paddingLeft="10dp"
+            android:background="@drawable/et_username"
             android:textCursorDrawable="@drawable/edittext_cursor_color"
             android:singleLine="true" />
         <EditText
@@ -57,8 +57,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:hint="@string/tv_register_phno"
-            android:gravity="center"
-            android:background="@drawable/custom_edittext"
+            android:paddingLeft="10dp"
+            android:background="@drawable/et_username"
             android:textCursorDrawable="@drawable/edittext_cursor_color"
             android:inputType="number"
             android:singleLine="true"/>
@@ -72,8 +72,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:hint="@string/tv_register_loyalty_no"
-            android:gravity="center"
-            android:background="@drawable/custom_edittext"
+            android:paddingLeft="10dp"
+            android:background="@drawable/et_username"
             android:textCursorDrawable="@drawable/edittext_cursor_color"
             android:inputType="number"
             android:singleLine="true"/>
@@ -86,11 +86,10 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:paddingLeft="5dp"
             android:singleLine="true"
-            android:gravity="center"
+            android:paddingLeft="10dp"
             android:textCursorDrawable="@drawable/edittext_cursor_color"
-            android:background="@drawable/custom_edittext"/>
+            android:background="@drawable/et_username"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -100,15 +99,14 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:paddingLeft="5dp"
+            android:paddingLeft="10dp"
             android:singleLine="true"
-            android:gravity="center"
             android:textCursorDrawable="@drawable/edittext_cursor_color"
-            android:background="@drawable/custom_edittext"/>
+            android:background="@drawable/et_username"/>
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="@string/btn_feedback_submit"
             android:background="@color/ColorPrimary"
             android:textColor="#FFFFFF"

@@ -18,5 +18,8 @@ public class URL {
     public static final String WISH_LIST_URL="http://whitehousecbe.in/demo/loyalty/url/storewishlist.php?";
     public static final String NEW_ARRIVAL_URL="http://whitehousecbe.in/demo/loyalty/url/newproduct.php";
     public static final String EDIT_PROFILE_URL="http://whitehousecbe.in/demo/loyalty/url/edit_profile.php?cus_id=";
+    public static final String MENS_CATEGORY_URL="http://whitehousecbe.in/demo/loyalty/url/men.php";
+    public static final String WOMENS_CATEGORY_URL="http://whitehousecbe.in/demo/loyalty/url/women.php";
+    public static final String KIDS_CATEGORY_URL="http://whitehousecbe.in/demo/loyalty/url/kids.php";
 
 }

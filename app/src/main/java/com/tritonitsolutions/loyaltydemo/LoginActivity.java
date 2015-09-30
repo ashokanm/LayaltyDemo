@@ -42,7 +42,7 @@ import java.util.List;
  * Created by TritonDev on 10/9/2015.
  */
 public class LoginActivity extends ActionBarActivity {
-    Toolbar toolbar;
+
     EditText user_name, password,forgot_email;
     Button login, register;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -54,8 +54,6 @@ public class LoginActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
         user_name = (EditText) findViewById(R.id.et_username);
         password = (EditText) findViewById(R.id.et_pwd);
         password.setTypeface(Typeface.DEFAULT);

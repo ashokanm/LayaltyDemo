@@ -12,6 +12,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.tritonitsolutions.loyaltydemo.SplashActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,18 +21,54 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.LoginActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.MainActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.ShopActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.FeedbackActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.NewArrivalActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.MyProfileActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.NotificationActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.NewUserActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.LoyaltyHistoryActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.WishListActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.LoyaltyActivity"></activity>
-        <activity android:name="com.tritonitsolutions.loyaltydemo.CustomerHistoryActivity"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.LoginActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.ShopActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.FeedbackActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.NewArrivalActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.MyProfileActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.NotificationActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.NewUserActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.LoyaltyHistoryActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.WishListActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.LoyaltyActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.CustomerHistoryActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.ShopCategoryActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.MenActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.WomenActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.KidsActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
