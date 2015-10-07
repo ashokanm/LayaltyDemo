@@ -5,14 +5,30 @@
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar">
     </include>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="NEW ARRIVAL"
+        android:id="@+id/tt"
+        android:textSize="15sp"
+        android:layout_below="@+id/tool_bar"
+        android:layout_centerHorizontal="true" />
     <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_marginTop="28dp"
+
         android:id="@+id/swipe_refresh_layout_arrival"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tool_bar">
+
+
     <ListView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:divider="#F0F0F0"
+        android:layout_weight="1.5"
+        android:dividerHeight="3.0sp"
         android:id="@+id/lv_new_arrival">
     </ListView>
     </android.support.v4.widget.SwipeRefreshLayout>

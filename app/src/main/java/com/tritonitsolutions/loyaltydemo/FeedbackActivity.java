@@ -97,7 +97,7 @@ public class FeedbackActivity extends ActionBarActivity {
                 }
                 if(isValidName && isValidEmail && isValidPhone && isValidCardno && isValidDescription){
                     new PostDataAsynTask().execute();
-                    Toast.makeText(getApplicationContext(),"Successfully sent your feedback.We will shortly get back to you",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Successfully sent your feedback.",Toast.LENGTH_LONG).show();
                     intent=new Intent(FeedbackActivity.this,MainActivity.class);
                     startActivity(intent);
                     name.setText("");

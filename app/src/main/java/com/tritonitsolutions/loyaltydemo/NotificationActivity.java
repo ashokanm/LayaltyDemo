@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.tritonitsolutions.Util.URL;
@@ -28,20 +29,19 @@ import java.util.HashMap;
  */
 public class NotificationActivity extends ActionBarActivity {
     Toolbar toolbar;
-    ArrayList data_notification1;
-    ArrayList data_notification2;
-    ArrayList data_notification3;
-    ArrayList data_notification4;
+    ArrayList<HashMap<String,String>> notification_store;
     JSONArray list=null;
     public static final String NOTIFICATION="offer";
+  // public static final String NOTIFICATION_ID = "id";
     public static final String TITLE="title";
     public static final String DESCRIPTION="discription";
-    public static final String COUPON_CODE="code";
+    //public static final String COUPON_CODE="code";
     public static final String EXPIRE_DATE="expire";
+    NotificationAdapter adapter;
+    ListView lv;
 
     ProgressDialog dialog;
-    TextView tv;
-    ImageView iv;
+
     LinearLayout layout;
     String R_user_id;
 
@@ -56,13 +56,9 @@ public class NotificationActivity extends ActionBarActivity {
         SharedPreferences pref = getSharedPreferences("User-id", MODE_PRIVATE);
         R_user_id = pref.getString("User_id", null);
         System.out.println("key"+R_user_id);
+        notification_store=new ArrayList<HashMap<String, String>>();
+        lv=(ListView)findViewById(R.id.lv_notification);
         new loadNotificationData().execute();
-        layout=(LinearLayout)findViewById(R.id.ll_notifi_layout);
-        data_notification1=new ArrayList();
-        data_notification2=new ArrayList();
-        data_notification3=new ArrayList();
-        data_notification4=new ArrayList();
-        iv=new ImageView(this);
 
     }
     private class loadNotificationData extends AsyncTask<String,Void,Void>{
@@ -83,6 +79,7 @@ public class NotificationActivity extends ActionBarActivity {
                 jsonStr=handler.makeServiceCall(URL.NOTIFICATION_URL+R_user_id,ServiceHandler.GET);
                 System.out.println("values----------->" + jsonStr);
             }catch (Exception e){
+
                 e.printStackTrace();
             }
 
@@ -93,15 +90,20 @@ public class NotificationActivity extends ActionBarActivity {
                     list=obj.getJSONArray(NOTIFICATION);
                     for(int i=0;i<list.length();i++){
                         JSONObject ob=list.getJSONObject(i);
-                        String notfi_code=ob.getString(COUPON_CODE);
+                       // String notofi_id=ob.getString(NOTIFICATION_ID);
+                        //String notfi_code=ob.getString(COUPON_CODE);
                         String notfi_title=ob.getString(TITLE);
                         String notfi_date=ob.getString(EXPIRE_DATE);
                         String notfi_des=ob.getString(DESCRIPTION);
 
-                         data_notification1.add(notfi_code);
-                         data_notification2.add(notfi_title);
-                         data_notification3.add(notfi_date);
-                         data_notification4.add(notfi_des);
+                        HashMap<String,String>notification= new HashMap<String,String>();
+                       // notification.put(NOTIFICATION_ID,notofi_id);
+                        notification.put(TITLE,notfi_title);
+                        notification.put(DESCRIPTION,notfi_des);
+                        notification.put(EXPIRE_DATE,notfi_date);
+                       // notification.put(COUPON_CODE,notfi_code);
+                        notification_store.add(notification);
+
 
                     }
 
@@ -113,33 +115,9 @@ public class NotificationActivity extends ActionBarActivity {
             return null;
         }
         protected void onPostExecute(Void result){
-            LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-            try {
-                for (int j = 0; j <= list.length() - 1; j++) {
-                    tv = new TextView(NotificationActivity.this);
-                    params.gravity = Gravity.CENTER;
-                    tv.setWidth(150);
-                    tv.setBackgroundColor(getResources().getColor(R.color.notification_background));
-                    tv.setTextColor(getResources().getColor(R.color.notification_text));
-                    tv.setPadding(Gravity.CENTER, 10, Gravity.CENTER, 10);
-                    tv.setTextSize(15);
-
-
-
-                    params.setMargins(Gravity.CENTER, 30, 30, 30);
-                    tv.setText(String.valueOf(data_notification2.get(j) + "\n" + data_notification4.get(j) + "\n" + data_notification1.get(j) + "\n" + data_notification3.get(j)));
-                    tv.setTypeface(Typeface.SERIF, Typeface.BOLD);
-                    tv.setLayoutParams(params);
-                    layout.addView(tv);
-                    layout.addView(iv);
-                }
-
-            }
-
-            catch (Exception e){
-                e.printStackTrace();
-            }
-            dialog.dismiss();
+            adapter=new NotificationAdapter(NotificationActivity.this,notification_store);
+            lv.setAdapter(adapter);
+             dialog.dismiss();
 
         }
     }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <include
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar">
@@ -21,20 +22,19 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
             android:id="@+id/et_edit_email"
+            android:paddingLeft="5dp"
             android:hint="@string/edit_profile_email"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:background="@drawable/custom_edittext"
+            android:background="@drawable/et_username"
             android:textCursorDrawable="@drawable/edittext_cursor_color"
             android:singleLine="true"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
+            android:paddingLeft="5dp"
             android:id="@+id/et_edit_phone"
             android:hint="@string/edit_profile_phone"
             android:inputType="number"
@@ -42,41 +42,25 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:background="@drawable/custom_edittext"
+            android:background="@drawable/et_username"
             android:textCursorDrawable="@drawable/edittext_cursor_color"
             android:singleLine="true"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/et_edit_loyalty_no"
-            android:hint="@string/edit_profile_loyalty_no"
-            android:inputType="number"
-            android:maxLength="12"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:background="@drawable/custom_edittext"
-            android:textCursorDrawable="@drawable/edittext_cursor_color"
-            android:singleLine="true"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
             android:id="@+id/et_edit_password"
             android:hint="@string/edit_profile_pwd"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:background="@drawable/custom_edittext"
+            android:paddingLeft="5dp"
+            android:background="@drawable/et_username"
             android:textCursorDrawable="@drawable/edittext_cursor_color"
             android:singleLine="true"/>
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="@string/edit_profile_submit"
             android:background="@color/ColorPrimary"
             android:textColor="#FFFFFF"

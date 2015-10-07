@@ -21,5 +21,6 @@ public class URL {
     public static final String MENS_CATEGORY_URL="http://whitehousecbe.in/demo/loyalty/url/men.php";
     public static final String WOMENS_CATEGORY_URL="http://whitehousecbe.in/demo/loyalty/url/women.php";
     public static final String KIDS_CATEGORY_URL="http://whitehousecbe.in/demo/loyalty/url/kids.php";
+    public static final String MENS_DETAIL_URL="";
 
 }

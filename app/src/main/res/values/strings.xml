@@ -25,8 +25,10 @@
     <string name="tv_forgot_pwd">Forgot Password?</string>
 
     <string name="tv_register_title">Register</string>
-    <string name="tv_register_name">Name</string>
+    <string name="tv_register_name">First name</string>
+    <string name="tv_register_lastname">Last name</string>
     <string name="tv_register_email">Email</string>
+    <string name="tv_register_dob">Date of birth</string>
     <string name="tv_register_phno">Phone number</string>
     <string name="tv_register_loyalty_no">Loyalty card number</string>
     <string name="tv_register_pwd">Password</string>
@@ -46,7 +48,7 @@
     <string name="tv_wishlist_description">Write your wishlist...</string>
     <string name="btn_wishlist_submit">Submit</string>
 
-    <string name="edit_profile_title">Change Profile</string>
+    <string name="edit_profile_title">Update Profile</string>
     <string name="edit_profile_email">Email</string>
     <string name="edit_profile_phone">Phone number</string>
     <string name="edit_profile_loyalty_no">Loyalty card number</string>

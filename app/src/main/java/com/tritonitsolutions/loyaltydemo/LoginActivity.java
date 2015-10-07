@@ -48,6 +48,7 @@ public class LoginActivity extends ActionBarActivity {
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     Intent intent;
     TextView forgot_pwd;
+    String user_name1;
 
 
     @Override
@@ -165,6 +166,7 @@ public class LoginActivity extends ActionBarActivity {
                 int returnedResult = Jasonobject.getInt("value");
                 try {
                   String user_id = Jasonobject.getString("cus_id");
+                 // user_name1=Jasonobject.getString("name");
                   SharedPreferences pred = getApplicationContext().getSharedPreferences("User-id", MODE_PRIVATE);
                   SharedPreferences.Editor editorp = pred.edit();
                   editorp.putString("User_id", user_id);
@@ -172,13 +174,14 @@ public class LoginActivity extends ActionBarActivity {
               }catch (Exception e)
               {
                   e.printStackTrace();
-                  Toast.makeText(getApplicationContext(),"Password Incorrect",Toast.LENGTH_LONG).show();
+                  Toast.makeText(getApplicationContext(),"Username or Password Incorrect",Toast.LENGTH_LONG).show();
 
               }
                   if (returnedResult == 1)
                     {
                     Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
                     intent = new Intent(LoginActivity.this, MainActivity.class);
+                    //intent.putExtra("user",user_name1);
                     startActivity(intent);
                         user_name.setText("");
                         password.setText("");
@@ -222,7 +225,6 @@ public class LoginActivity extends ActionBarActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
 
         }
 

@@ -16,7 +16,7 @@ import com.tritonitsolutions.layaltydemo.R;
  */
 public class ViewPagerAdapter extends PagerAdapter {
     Context context;
-    int[]images={R.drawable.im_autoslide_1,R.drawable.im_autoslide_2,R.drawable.im_autoslide_4};
+    int[]images={R.drawable.img_shirt};
     View view;
     LayoutInflater inflater;
     public ViewPagerAdapter(Context context) {

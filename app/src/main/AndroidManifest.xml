@@ -69,6 +69,11 @@
         <activity android:name="com.tritonitsolutions.loyaltydemo.KidsActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"></activity>
+        <activity android:name="com.tritonitsolutions.loyaltydemo.MeansDetailActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

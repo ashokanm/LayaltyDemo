@@ -8,8 +8,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.tritonitsolutions.Util.URL;
@@ -23,9 +25,11 @@ import org.json.JSONObject;
 public class NewUserActivity extends ActionBarActivity {
     Toolbar toolbar;
     EditText reg_name, reg_email, reg_ph_no, reg_lcn, reg_pwd, reg_confirm_pwd;
+    Spinner gender;
     Button reg_submit;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     Intent intent;
+    String[] str_gender={"Male","Female"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,10 @@ public class NewUserActivity extends ActionBarActivity {
         reg_name = (EditText) findViewById(R.id.et_newuser_name);
         reg_email = (EditText) findViewById(R.id.et_newuser_email);
         reg_ph_no = (EditText) findViewById(R.id.et_newuser_ph_no);
-        reg_lcn = (EditText) findViewById(R.id.et_newuser_loyalty_no);
+        gender=(Spinner)findViewById(R.id.et_newuser_gender);
+        ArrayAdapter<String>sp_gender=new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,str_gender);
+        gender.setAdapter(sp_gender);
+       // reg_lcn = (EditText) findViewById(R.id.et_newuser_loyalty_no);
         reg_pwd = (EditText) findViewById(R.id.et_newuser_pwd);
         reg_pwd.setTypeface(Typeface.DEFAULT);
         reg_pwd.setTransformationMethod(new PasswordTransformationMethod());
@@ -71,17 +78,17 @@ public class NewUserActivity extends ActionBarActivity {
                 } else {
                     isValidPhone = true;
                 }
-                if (reg_lcn.getText().toString().matches("")) {
-                    reg_lcn.setError("Enter card number !");
-
-                } else if (!(reg_lcn.getText().toString().length() == 12)) {
-                    reg_lcn.setError("Enter 12-digit card number !");
-
-                    isValidCardno = false;
-
-                } else {
-                    isValidCardno = true;
-                }
+//                if (reg_lcn.getText().toString().matches("")) {
+//                    reg_lcn.setError("Enter card number !");
+//
+//                } else if (!(reg_lcn.getText().toString().length() == 12)) {
+//                    reg_lcn.setError("Enter 12-digit card number !");
+//
+//                    isValidCardno = false;
+//
+//                } else {
+//                    isValidCardno = true;
+//                }
                 if (reg_pwd.getText().toString().matches("")) {
                     reg_pwd.setError("Enter your password !");
 
@@ -100,7 +107,7 @@ public class NewUserActivity extends ActionBarActivity {
                 }
 
 
-                if (isValidName && isValidEmail && isValidPhone && isValidCardno && isValidPassword && isValidConfirmPassword) {
+                if (isValidName && isValidEmail && isValidPhone && isValidPassword && isValidConfirmPassword) {
                     new newUserAsynTask().execute();
 
                 }

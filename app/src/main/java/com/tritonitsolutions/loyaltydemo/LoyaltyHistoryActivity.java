@@ -2,15 +2,19 @@ package com.tritonitsolutions.loyaltydemo;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,33 +26,38 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by TritonDev on 14/9/2015.
  */
 public class LoyaltyHistoryActivity extends Activity {
     public static final String LOYALTY_HISTORY = "loyalty_history";
+    public static final String LOYALTY_ID = "loyalty_id";
     public static final String LOYALTY_POINT = "loyalty_point";
-    public static final String REEDEM_POINT = "reedem_point";
-    ArrayList history1 = null;
-    ArrayList history2 = null;
+    ArrayList<HashMap<String,String>> lh_data;
+    ListView lv;
     JSONArray data_history = null;
     ProgressDialog dialog;
-    TextView tv_history;
     String user_id;
-    LinearLayout ll_history;
+    LoyaltyHistoryAdapter adapter;
+
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loyaltyhistory_layout);
+        lv=(ListView)findViewById(R.id.lv_point_history);
+
+
         SharedPreferences pref = getSharedPreferences("User-id", MODE_PRIVATE);
         user_id = pref.getString("User_id", null);
         System.out.println("KEY---------->" + user_id);
+        lh_data=new ArrayList<HashMap<String, String>>();
         new loadPurchaseHistoryData().execute();
-        ll_history = (LinearLayout) findViewById(R.id.ll_purchase_history);
-        history1 = new ArrayList();
-        history2 = new ArrayList();
 
     }
 
@@ -84,12 +93,13 @@ public class LoyaltyHistoryActivity extends Activity {
                     if (LOYALTY_HISTORY != null) {
                         for (int i = 0; i < data_history.length(); i++) {
                             JSONObject object = data_history.getJSONObject(i);
+                            String lh_loyalty_id = object.getString(LOYALTY_ID);
                             String lh_loyalty_points = object.getString(LOYALTY_POINT);
-                            String lh_reedem_points = object.getString(REEDEM_POINT);
 
-                            history1.add(lh_loyalty_points);
-                            history2.add(lh_reedem_points);
-
+                            HashMap<String,String> lh=new HashMap<String,String>();
+                            lh.put(LOYALTY_ID,lh_loyalty_id);
+                            lh.put(LOYALTY_POINT, lh_loyalty_points);
+                            lh_data.add(lh);
 
                         }
                     } else {
@@ -110,26 +120,8 @@ public class LoyaltyHistoryActivity extends Activity {
 
         protected void onPostExecute(Void s) {
             super.onPostExecute(s);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            try {
-                for (int j = 0; j <= data_history.length() - 1; j++) {
-                    tv_history = new TextView(LoyaltyHistoryActivity.this);
-                    params.gravity = Gravity.CENTER;
-                    tv_history.setWidth(150);
-                    tv_history.setBackgroundColor(getResources().getColor(R.color.notification_background));
-                    tv_history.setTextColor(getResources().getColor(R.color.notification_text));
-                    tv_history.setPadding(Gravity.CENTER, 10, Gravity.CENTER, 10);
-                    tv_history.setTextSize(15);
-                    params.setMargins(Gravity.CENTER, 30, 30, 30);
-                    tv_history.setTypeface(Typeface.SERIF, Typeface.BOLD);
-                    tv_history.setText(String.valueOf("\n" + "Loyalty Point: " + history1.get(j)) + "\n\n" + "Reedem Point: " + history2.get(j) + "\n");
-                    tv_history.setLayoutParams(params);
-                    ll_history.addView(tv_history);
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            adapter=new LoyaltyHistoryAdapter(LoyaltyHistoryActivity.this,lh_data);
+            lv.setAdapter(adapter);
             dialog.dismiss();
         }
     }

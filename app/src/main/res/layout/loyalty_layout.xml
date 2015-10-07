@@ -3,6 +3,11 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/reviewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp" />
+
     <TabHost
     android:id="@android:id/tabhost"
     android:layout_width="fill_parent"

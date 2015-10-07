@@ -14,8 +14,16 @@
     android:layout_height="match_parent"
     android:elevation="7dp"
     android:layout_below="@+id/tool_bar">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -23,13 +31,13 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/reviewpager"
             android:layout_width="fill_parent"
-            android:layout_height="230dp" />
+            android:layout_height="250dp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:weightSum="3"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="wrap_content"
@@ -51,15 +59,6 @@
                 android:textColor="@color/ColorPrimary"
                 android:layout_weight="0.5"/>
         </LinearLayout>
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none"
-            android:layout_marginTop="10dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
 
 
         <LinearLayout
@@ -68,7 +67,7 @@
             android:orientation="horizontal"
             android:gravity="center_horizontal"
             android:weightSum="2"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="10dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,7 +87,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
                         android:textSize="15sp"
                         android:layout_marginTop="10dp"
                         android:text="@string/iv_loyalty"/>
@@ -118,7 +116,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
                         android:textSize="15sp"
                         android:text="@string/iv_shop"/>
                 </LinearLayout>
@@ -154,7 +151,6 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
                         android:textSize="15sp"
                         android:text="@string/iv_new_arrival"/>
                 </LinearLayout>
@@ -183,7 +179,6 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
                         android:textSize="15sp"
                         android:text="@string/iv_notification"/>
                 </LinearLayout>
@@ -191,10 +186,11 @@
             </LinearLayout>
         </LinearLayout>
             </LinearLayout>
-        </ScrollView>
 
 
     </LinearLayout>
+        </ScrollView>
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/RecyclerView"

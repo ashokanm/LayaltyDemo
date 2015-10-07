@@ -19,7 +19,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -84,13 +86,16 @@ public class CustomerHistoryActivity extends Activity {
                         String pro_id=jsonObject.getString(CH_PROD_ID);
                         String iv_no=jsonObject.getString(CH_INVOICE_NO);
                         String sales_date=jsonObject.getString(CH_SALES_DATE);
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        Date date=new Date(sales_date);
+                        String format=sdf.format(date);
                         String qty=jsonObject.getString(CH_QUANTITY);
                         String total=jsonObject.getString(CH_TOTAL);
 
                         HashMap<String,String>ch_data=new HashMap<String,String>();
                         ch_data.put(CH_PROD_ID,pro_id);
                         ch_data.put(CH_INVOICE_NO,iv_no);
-                        ch_data.put(CH_SALES_DATE,sales_date);
+                        ch_data.put(CH_SALES_DATE,format);
                         ch_data.put(CH_QUANTITY,qty);
                         ch_data.put(CH_TOTAL,total);
                         new_ch.add(ch_data);
@@ -107,6 +112,7 @@ public class CustomerHistoryActivity extends Activity {
             super.onPostExecute(s);
             adapter=new CustomerHistoryAdapter(CustomerHistoryActivity.this,new_ch);
             lv.setAdapter(adapter);
+
             dialog.dismiss();
             }
 

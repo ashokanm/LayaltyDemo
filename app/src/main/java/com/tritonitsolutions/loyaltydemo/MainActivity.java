@@ -20,10 +20,10 @@ import java.util.TimerTask;
 
 public class MainActivity extends ActionBarActivity {
     private Toolbar toolbar;
-    String TITLES[] = {"Profile","Shop","Shop Locator","Wallet","Call Us","Review","Feedback","WishList","Logout"};
-    int ICONS[] = {R.drawable.menu_profile,R.drawable.menu_shop,R.drawable.menu_shop_locator,R.drawable.menu_wallet,R.drawable.menu_callus,R.drawable.menu_review,R.drawable.menu_feedback,R.drawable.menu_wishlist,R.drawable.menu_logout};
-    String NAME = "Loyalty";
-    String EMAIL = "11102000456";
+    String TITLES[] = {"Profile","Shop","Shop Locator","Call Us","Feedback","WishList","Logout"};
+    int ICONS[] = {R.drawable.menu_profile,R.drawable.menu_shop,R.drawable.menu_shop_locator,R.drawable.menu_callus,R.drawable.menu_feedback,R.drawable.menu_wishlist,R.drawable.menu_logout};
+    String NAME="User Name" ;
+    //String EMAIL = "11102000456";
     int PROFILE = R.drawable.img_user;
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -45,7 +45,7 @@ public class MainActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new RecyclerViewAdapter(TITLES,ICONS,NAME,EMAIL,PROFILE,this);
+        mAdapter = new RecyclerViewAdapter(TITLES,ICONS,NAME,PROFILE,this);
         mRecyclerView.setAdapter(mAdapter);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -54,6 +54,8 @@ public class MainActivity extends ActionBarActivity {
         ll_shop=(LinearLayout)findViewById(R.id.iv_shop);
         ll_new_arrival=(LinearLayout)findViewById(R.id.iv_new_arrival);
         ll_notification=(LinearLayout)findViewById(R.id.iv_notification);
+      //  NAME=getIntent().getStringExtra("user");
+
         ll_loyalty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,26 +107,26 @@ public class MainActivity extends ActionBarActivity {
         pager=(ViewPager)findViewById(R.id.reviewpager);
         pager.setAdapter(adapter);
         pager.setCurrentItem(0);
-        timer=new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if(count<=3){
-                            pager.setCurrentItem(count);
-                            count++;
-                        }else {
-                            count=0;
-                            pager.setCurrentItem(count);
-                        }
-
-                    }
-                });
-            }
-        },500,3000);
-    }
+//        timer=new Timer();
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        if(count<=3){
+//                            pager.setCurrentItem(count);
+//                            count++;
+//                        }else {
+//                            count=0;
+//                            pager.setCurrentItem(count);
+//                        }
+//
+//                    }
+//                });
+//            }
+//        },500,3000);
+   }
 
 }
 

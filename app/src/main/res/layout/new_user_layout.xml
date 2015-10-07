@@ -18,12 +18,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/tv_register_title"
-            android:textStyle="bold"
             android:textSize="25dp"/>
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:id="@+id/et_newuser_name"
             android:layout_marginRight="10dp"
@@ -36,7 +35,20 @@
             android:singleLine="true"/>
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/et_newuser_last_name"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:hint="@string/tv_register_lastname"
+            android:paddingLeft="10dp"
+            android:background="@drawable/et_username"
+            android:textCursorDrawable="@drawable/edittext_cursor_color"
+            android:singleLine="true"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:id="@+id/et_newuser_email"
             android:layout_marginRight="10dp"
@@ -49,7 +61,30 @@
             android:singleLine="true" />
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/et_newuser_dob"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:hint="@string/tv_register_dob"
+            android:paddingLeft="10dp"
+            android:background="@drawable/et_username"
+            android:textCursorDrawable="@drawable/edittext_cursor_color"
+            android:singleLine="true"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/et_newuser_gender"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/et_username" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:id="@+id/et_newuser_ph_no"
             android:maxLength="10"
@@ -62,24 +97,10 @@
             android:textCursorDrawable="@drawable/edittext_cursor_color"
             android:inputType="number"
             android:singleLine="true"/>
+
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/et_newuser_loyalty_no"
-            android:maxLength="12"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:hint="@string/tv_register_loyalty_no"
-            android:paddingLeft="10dp"
-            android:background="@drawable/et_username"
-            android:textCursorDrawable="@drawable/edittext_cursor_color"
-            android:inputType="number"
-            android:singleLine="true"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:id="@+id/et_newuser_pwd"
             android:hint="@string/tv_register_pwd"
@@ -92,7 +113,7 @@
             android:background="@drawable/et_username"/>
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:id="@+id/et_newuser_confirm_pwd"
             android:hint="@string/tv_register_confirm_pwd"

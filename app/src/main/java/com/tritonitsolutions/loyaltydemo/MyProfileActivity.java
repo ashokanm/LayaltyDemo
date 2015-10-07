@@ -23,7 +23,7 @@ import org.json.JSONObject;
  */
 public class MyProfileActivity extends ActionBarActivity {
     Toolbar toolbar;
-    EditText email, phone_number, loyalty_no, pwd;
+    EditText email, phone_number, pwd;
     Button submit;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String user_id;
@@ -39,7 +39,6 @@ public class MyProfileActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
         email = (EditText) findViewById(R.id.et_edit_email);
         phone_number = (EditText) findViewById(R.id.et_edit_phone);
-        loyalty_no = (EditText) findViewById(R.id.et_edit_loyalty_no);
         pwd = (EditText) findViewById(R.id.et_edit_password);
         pwd.setTypeface(Typeface.DEFAULT);
         pwd.setTransformationMethod(new PasswordTransformationMethod());
@@ -50,7 +49,7 @@ public class MyProfileActivity extends ActionBarActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isValidEmail = false, isValidPhone = false, isValidLoyalty = false, isValidPwd = false;
+                boolean isValidEmail = false, isValidPhone = false, isValidPwd = false;
                 if (email.getText().toString().matches("")) {
                     email.setError("Enter eMail address !");
                 } else if (!(email.getText().toString().matches(emailPattern))) {
@@ -68,15 +67,7 @@ public class MyProfileActivity extends ActionBarActivity {
                 } else {
                     isValidPhone = true;
                 }
-                if (loyalty_no.getText().toString().matches("")) {
-                    loyalty_no.setError("Enter loyalty number !");
 
-                } else if (!(loyalty_no.getText().toString().length() == 12)) {
-                    loyalty_no.setError("Enter valid loyalty number !");
-                    isValidLoyalty = false;
-                } else {
-                    isValidLoyalty = true;
-                }
                 if (pwd.getText().toString().matches("")) {
                     pwd.setError("Enter password !");
                 } else if (!(pwd.getText().toString().length() >= 8)) {
@@ -85,7 +76,7 @@ public class MyProfileActivity extends ActionBarActivity {
                 } else {
                     isValidPwd = true;
                 }
-                if (isValidEmail && isValidPhone && isValidLoyalty && isValidPwd) {
+                if (isValidEmail && isValidPhone && isValidPwd) {
                     new loadChangeProfileData().execute();
 
 
@@ -102,7 +93,7 @@ public class MyProfileActivity extends ActionBarActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            String url = URL.EDIT_PROFILE_URL  + user_id + "&email=" + email.getText().toString() + "&mobile=" + phone_number.getText().toString() + "&card_no=" + loyalty_no.getText().toString() + "&password=" + pwd.getText().toString();
+            String url = URL.EDIT_PROFILE_URL  + user_id + "&email=" + email.getText().toString() + "&mobile=" + phone_number.getText().toString() + "&password=" + pwd.getText().toString();
             System.out.println("urll---->"+url);
             try {
                 ServiceHandler handler = new ServiceHandler();
@@ -133,7 +124,6 @@ public class MyProfileActivity extends ActionBarActivity {
                     startActivity(intent);
                     email.setText("");
                     phone_number.setText("");
-                    loyalty_no.setText("");
                     pwd.setText("");
                     finish();
                 } else {

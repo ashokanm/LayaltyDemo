@@ -49,7 +49,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             } else {
                 pro = (ImageView) itemView.findViewById(R.id.circleView);
                 Name = (TextView) itemView.findViewById(R.id.tv_name);
-                email = (TextView) itemView.findViewById(R.id.tv_email);
+               // email = (TextView) itemView.findViewById(R.id.tv_email);
                 Holderid = 0;
             }
         }
@@ -69,29 +69,26 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     cn.startActivity(intent);
                     break;
                 case 2:
-                    intent=new Intent(cn,ShopActivity.class);
+                    intent=new Intent(cn,ShopCategoryActivity.class);
                     cn.startActivity(intent);
                     break;
+
                 case 3:
                     break;
                 case 4:
-                    break;
-                case 5:
                     Intent phoneIntent=new Intent(Intent.ACTION_CALL);
                     phoneIntent.setData(Uri.parse("tel:" +"0987654321"));
                     cn.startActivity(phoneIntent);;
                     break;
-                case 6:
-                    break;
-                case 7:
+                case 5:
                     intent=new Intent(cn,FeedbackActivity.class);
                     cn.startActivity(intent);
                     break;
-                case 8:
+                case 6:
                     intent=new Intent(cn,WishListActivity.class);
                     cn.startActivity(intent);
                     break;
-                case 9:
+                case 7:
                     intent=new Intent(cn,LoginActivity.class);
                     SharedPreferences pref = cn.getSharedPreferences("User-id", 0);
                     SharedPreferences.Editor editor = pref.edit();
@@ -111,11 +108,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     }
 
-    RecyclerViewAdapter(String Titles[], int Icons[], String Name, String email,int profile, Context cntx) {
+    RecyclerViewAdapter(String Titles[], int Icons[], String Name, int profile, Context cntx) {
         mNavTitles = Titles;
         mIcons = Icons;
         name = Name;
-        e_mail = email;
+       // e_mail = email;
         prof=profile;
         this.context = cntx;
     }
@@ -146,7 +143,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             holder.imageView.setImageResource(mIcons[position - 1]);
         } else {
             holder.Name.setText(name);
-            holder.email.setText(e_mail);
+         //   holder.email.setText(e_mail);
             holder.pro.setImageResource(prof);
         }
     }
