@@ -68,6 +68,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:hint="@string/tv_register_dob"
+            android:focusable="false"
             android:paddingLeft="10dp"
             android:background="@drawable/et_username"
             android:textCursorDrawable="@drawable/edittext_cursor_color"
@@ -78,9 +79,9 @@
             android:layout_gravity="center_horizontal"
             android:id="@+id/et_newuser_gender"
             android:layout_marginRight="10dp"
+            android:entries="@array/spinner_array"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:paddingLeft="10dp"
             android:background="@drawable/et_username" />
         <EditText
             android:layout_width="match_parent"

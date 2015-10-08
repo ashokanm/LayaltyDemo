@@ -15,28 +15,28 @@ import java.util.HashMap;
 /**
  * Created by TritonDev on 28/9/2015.
  */
-public class KidsAdapter extends BaseAdapter {
+public class CategoryAdapter extends BaseAdapter {
     Context context;
-    ArrayList<HashMap<String,String>> kids_data;
+    ArrayList<HashMap<String,String>> mens_data;
     LayoutInflater inflater;
-    public KidsAdapter(Context context,ArrayList<HashMap<String,String>> mens_data){
+    public CategoryAdapter(Context context, ArrayList<HashMap<String, String>> mens_data){
         this.context=context;
-        this.kids_data=mens_data;
+        this.mens_data=mens_data;
         inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
     @Override
     public int getCount() {
-        return kids_data.size();
+        return mens_data.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return kids_data.get(position);
+        return mens_data.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return kids_data.indexOf(getItem(position));
+        return mens_data.indexOf(getItem(position));
     }
 
     @Override
@@ -44,22 +44,21 @@ public class KidsAdapter extends BaseAdapter {
         View vi=convertView;
         ViewHolder holder=null;
         if(convertView==null){
-            vi=inflater.inflate(R.layout.kids_row,parent,false);
+            vi=inflater.inflate(R.layout.category_row,parent,false);
             holder=new ViewHolder();
-            holder.kids_category=(TextView)vi.findViewById(R.id.tv_kids_category);
-            holder.price_range=(TextView)vi.findViewById(R.id.tv_kids_pricerange);
+            holder.mens_category=(TextView)vi.findViewById(R.id.tv_mens_category);
+            holder.price_range=(TextView)vi.findViewById(R.id.tv_mens_pricerange);
             vi.setTag(holder);
         }else {
             holder=(ViewHolder)vi.getTag();
         }
-        HashMap<String,String> mens_list=kids_data.get(position);
-        holder.kids_category.setText(mens_list.get(KidsActivity.TAG_KIDS_NAME));
-        holder.price_range.setText(mens_list.get(KidsActivity.TAG_PRICE_RANGE));
-
+        HashMap<String,String> mens_list=mens_data.get(position);
+        holder.mens_category.setText(mens_list.get("p_name"));
+        holder.price_range.setText(mens_list.get("p_prize"));
         return vi;
     }
     private class ViewHolder{
-        TextView kids_category,price_range;
+        TextView mens_category,price_range;
 
     }
 }

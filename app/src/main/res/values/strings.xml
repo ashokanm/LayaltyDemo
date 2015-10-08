@@ -49,11 +49,19 @@
     <string name="btn_wishlist_submit">Submit</string>
 
     <string name="edit_profile_title">Update Profile</string>
+    <string name="edit_profile_firstname">First name</string>
+    <string name="edit_profile_lastname">Last name</string>
     <string name="edit_profile_email">Email</string>
+    <string name="edit_profile_dob">Date of birth</string>
     <string name="edit_profile_phone">Phone number</string>
     <string name="edit_profile_loyalty_no">Loyalty card number</string>
     <string name="edit_profile_pwd">Password</string>
     <string name="edit_profile_submit">Submit</string>
+
+    <string-array name="spinner_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 
 
 </resources>

@@ -11,6 +11,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import com.tritonitsolutions.Util.URL;
 import com.tritonitsolutions.layaltydemo.R;
@@ -23,7 +24,8 @@ import org.json.JSONObject;
  */
 public class MyProfileActivity extends ActionBarActivity {
     Toolbar toolbar;
-    EditText email, phone_number, pwd;
+    EditText first_name,last_name,email,dob, phone_number, pwd;
+    Spinner gender;
     Button submit;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String user_id;
@@ -37,6 +39,10 @@ public class MyProfileActivity extends ActionBarActivity {
         setContentView(R.layout.my_profile_layout);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+        first_name=(EditText)findViewById(R.id.et_edit_firstname);
+        last_name=(EditText)findViewById(R.id.et_edit_lastname);
+        dob=(EditText)findViewById(R.id.et_edit_dob);
+        gender=(Spinner)findViewById(R.id.et_edit_gender);
         email = (EditText) findViewById(R.id.et_edit_email);
         phone_number = (EditText) findViewById(R.id.et_edit_phone);
         pwd = (EditText) findViewById(R.id.et_edit_password);
@@ -79,10 +85,7 @@ public class MyProfileActivity extends ActionBarActivity {
                 if (isValidEmail && isValidPhone && isValidPwd) {
                     new loadChangeProfileData().execute();
 
-
                 }
-
-
             }
         });
 

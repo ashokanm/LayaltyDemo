@@ -1,9 +1,13 @@
 package com.tritonitsolutions.loyaltydemo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.tritonitsolutions.Util.URL;
 import com.tritonitsolutions.layaltydemo.R;
@@ -25,7 +29,7 @@ public class KidsActivity extends Activity {
     ListView lv;
     ArrayList<HashMap<String, String>> store_kids;
     JSONArray kids_list = null;
-    KidsAdapter adapter;
+    CategoryAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,19 @@ public class KidsActivity extends Activity {
         lv=(ListView)findViewById(R.id.lv_kids);
         store_kids = new ArrayList<HashMap<String, String>>();
         new loadKidsCategory().execute();
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                HashMap<String, String> map = (HashMap<String, String>) lv.getItemAtPosition(position);
+                String value = map.get(TAG_KIDS_NAME);
+                Intent intent = new Intent(KidsActivity.this, KidsDetailActivity.class);
+                intent.putExtra("kids", value);
+                startActivity(intent);
+
+                Toast.makeText(getApplicationContext(), "kidsitem" + value, Toast.LENGTH_LONG).show();
+
+            }
+        });
     }
     private class loadKidsCategory extends AsyncTask<String, Void, Void> {
         String jsonValue;
@@ -74,7 +91,7 @@ public class KidsActivity extends Activity {
         }
         protected  void onPostExecute(Void result){
             super.onPostExecute(result);
-            adapter=new KidsAdapter(KidsActivity.this,store_kids);
+            adapter=new CategoryAdapter(KidsActivity.this,store_kids);
             lv.setAdapter(adapter);
         }
     }

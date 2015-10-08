@@ -29,7 +29,7 @@ public class MenActivity extends Activity {
     ListView lv;
     ArrayList<HashMap<String, String>> store_mens;
     JSONArray mens_list = null;
-    MensAdapter adapter;
+    CategoryAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,19 +38,19 @@ public class MenActivity extends Activity {
         lv=(ListView)findViewById(R.id.lv_mens);
         store_mens = new ArrayList<HashMap<String, String>>();
         new loadMensCategory().execute();
-//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                HashMap<String,String> map=(HashMap<String, String>)lv.getItemAtPosition(position);
-//                String value=map.get(TAG_MENS_NAME);
-//                Intent intent=new Intent(MenActivity.this,MeansDetailActivity.class);
-//                intent.putExtra("mens",value);
-//                startActivity(intent);
-//
-//                Toast.makeText(getApplicationContext(),"your item"+value,Toast.LENGTH_LONG).show();
-//
-//            }
-//        });
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                HashMap<String,String> map=(HashMap<String, String>)lv.getItemAtPosition(position);
+                String value=map.get(TAG_MENS_NAME);
+                Intent intent=new Intent(MenActivity.this,MenDetailActivity.class);
+                intent.putExtra("mens",value);
+                startActivity(intent);
+
+                Toast.makeText(getApplicationContext(),"your item"+ value,Toast.LENGTH_LONG).show();
+
+            }
+        });
 
     }
 
@@ -93,7 +93,7 @@ public class MenActivity extends Activity {
         }
         protected  void onPostExecute(Void result){
             super.onPostExecute(result);
-            adapter=new MensAdapter(MenActivity.this,store_mens);
+            adapter=new CategoryAdapter(MenActivity.this,store_mens);
             lv.setAdapter(adapter);
         }
     }

@@ -1,9 +1,13 @@
 package com.tritonitsolutions.loyaltydemo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.tritonitsolutions.Util.URL;
 import com.tritonitsolutions.layaltydemo.R;
@@ -25,7 +29,7 @@ public class WomenActivity extends Activity {
     ListView lv;
     ArrayList<HashMap<String, String>> store_womens;
     JSONArray womens_list = null;
-    WomensAdapter adapter;
+    CategoryAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,20 @@ public class WomenActivity extends Activity {
         lv=(ListView)findViewById(R.id.lv_women);
         store_womens = new ArrayList<HashMap<String, String>>();
         new loadWomensCategory().execute();
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                HashMap<String, String> map = (HashMap<String, String>) lv.getItemAtPosition(position);
+                String value = map.get(TAG_WOMENS_NAME);
+                Intent intent = new Intent(WomenActivity.this, WomenDetailActivity.class);
+                intent.putExtra("women", value);
+                startActivity(intent);
+
+                Toast.makeText(getApplicationContext(), "women item" + value, Toast.LENGTH_LONG).show();
+
+            }
+        });
+
 
     }
     private class loadWomensCategory extends AsyncTask<String, Void, Void> {
@@ -75,7 +93,7 @@ public class WomenActivity extends Activity {
         }
         protected  void onPostExecute(Void result){
             super.onPostExecute(result);
-            adapter=new WomensAdapter(WomenActivity.this,store_womens);
+            adapter=new CategoryAdapter(WomenActivity.this,store_womens);
             lv.setAdapter(adapter);
         }
     }
